@@ -10,13 +10,12 @@ FROM `my-project-01-325118.fitbit.intensities_hour`
 ORDER BY Id, activityhour
 
 SELECT  Id, PARSE_DATETIME('%m/%d/%Y %I:%M:%S %p', ActivityHour) AS activityhour, StepTotal
-FROM `my-project-01-325118.fitbit.steps_hour
+FROM `my-project-01-325118.fitbit.steps_hour`
 ORDER BY Id, activityhour
 
 --We do the same to sleepDay table except that this time we extract only the date from the format in the table
 
-SELECT  Id, PARSE_DATE('%m/%d/%Y', SUBSTR(SleepDay, 0, 9)) AS sleepday,
-    TotalSleepRecords, TotalMinutesAsleep, TotalTimeInBed
+SELECT  Id, PARSE_DATE('%m/%d/%Y', SUBSTR(SleepDay, 0, 9)) AS sleepday, TotalSleepRecords, TotalMinutesAsleep, TotalTimeInBed
 FROM `my-project-01-325118.fitbit.sleepday`
 ORDER BY Id, sleepday
 -------------
